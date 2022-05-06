@@ -7,7 +7,7 @@ import {useState} from "react";
 const ButReq = () => {
     const [flag,setFlag] = useState(false);
     return (
-        <div>
+        <div className='all'>
             <button className='reqHistoryTitle' onClick={() => {
                 setFlag(!flag)
             }}>Show News</button>
