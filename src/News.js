@@ -3,16 +3,16 @@ import React, {useState} from "react";
 const Item = ({news}) => {
     const [flag,setFlag] = useState(false);
     return (
-            <div className='mainInfo'>
-                <p className='newsName'>{news.name}</p>
-                <button className='showDescription' onClick={() => {
-                    setFlag(!flag)
-
-                }}></button>
-                {flag && <p className='newsDescription'>{news.description}</p>}
-            </div>
+        <div className='mainInfo'>
+            <p className='newsName'>{news.name}</p>
+            <button className='showDescription' onClick={() => {
+                setFlag(!flag)
+            }}></button>
+            {flag && <p className='newsDescription'>{news.description}</p>}
+        </div>
     )
 }
+
 const newsArr = [
     {
         name: 'Elon Musk Is a Typical Twitter User, Except for One Thing',
@@ -35,45 +35,42 @@ const newsArr = [
         description: 'New audio recordings reveal Kevin McCarthy worried that comments by his far-right colleagues could incite violence. He said he would try to rein in the lawmakers, but has instead defended them.'
     }
 ]
-const newNew = {
-    name: '',
-    description: ''
-}
+
+
 const News = () => {
+
     const [search,setSearch] = useState('');
     const [news,setNews] = useState(newsArr);
     const [inName,setInName] = useState('');
     const [inDescription,setInDescription] = useState('');
 
-    function replaceNews(){
+    const replaceNews = () => {
         setNews([...news].reverse())
-    }
-    function addNews(){
-        setNews([...news,newNew])
     }
     return (
         <div >
-
             <div className="add">
                 <div className="addInpt">
                     <p className='newsAddName'>Enter the title of the news</p>
                 <input type='text' placeholder='Add title' className='addNews'
                        onChange={(ev) => {
                            setInName(ev.target.value)
-                           newNew.name = inName
                        }}
                 />
-
                     <p className='newsAddName'>Enter a description of the news</p>
                 <input type='text' placeholder='Add description' className='addNews'
                        onChange={(ev) => {
                            setInDescription(ev.target.value)
-                           newNew.description = inDescription
                        }}
                 />
-
                 </div>
-                <button className='reqHistoryTitle' onClick={addNews}>Add News</button>
+                <button className='reqHistoryTitle' onClick={() => {
+                    const newNew = {
+                    name: `${inName}`,
+                    description: `${inDescription}`
+                }
+                    setNews((news) => [...news,newNew])
+                }}>Add News</button>
             </div>
             <div className='srchAndRpls'>
             <button className='reqHistoryTitle' onClick={replaceNews}>Replace News</button>
@@ -81,15 +78,15 @@ const News = () => {
                    onChange={(ev) => setSearch(ev.target.value)}
             />
             </div>
-
-            {news.filter(news =>{
-                return news.name.toLowerCase().includes(search.toLowerCase())
-            }).map((news) => {
+            {news.filter(key =>{
+                return key.name.toLowerCase().includes(search.toLowerCase())
+            }).map((key) => {
                 return (
-                    <Item news={news}/>
+                    <Item news={key}/>
                 )
             })}
         </div>
     )
 }
+
 export default News;
