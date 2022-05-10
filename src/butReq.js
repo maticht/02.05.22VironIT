@@ -1,33 +1,19 @@
 import './App.css';
 import React from "react";
 import News from "./News";
+import {useState} from "react";
 
-class ButReq extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            flag: false
-        }
-    }
-    render() {
-        return(
-            <>
-                <p className='Requests'>The New York Times</p>
-                <div>
-                    <button className='reqHistoryTitle' onClick={() => {
-                        this.setState((state)=>({flag: !state.flag}))
-                    }}>Show News</button>
-                    {this.state.flag && <News setValue={
-                        (type) => {
-                            this.setState({
-                                name: type
-                            })
-                        }
-                    }/>}
-                </div>
-            </>
-        )
-    }
+
+const ButReq = () => {
+    const [flag,setFlag] = useState(false);
+    return (
+        <div className='all'>
+            <button className='reqHistoryTitle' onClick={() => {
+                setFlag(!flag)
+            }}>Show News</button>
+            {flag && <News/>}
+        </div>
+    )
 }
 
 export default ButReq;

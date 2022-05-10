@@ -9,6 +9,10 @@
 
   }
 }
+.addInpt{
+  display: flex;
+  flex-direction: column;
+}
 .Requests{
   margin-top: 3vh;
   width: 80vw;
@@ -27,10 +31,21 @@
 }
 .addNews{
   padding: 5px;
+  width: 50vw;
 
   background: #282c34;
   color: aliceblue;
   border: solid 2px aliceblue;
+}
+.add{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 4vh;
+  margin: 0 10vw 0 10vw;
+  border-top: solid 1px aliceblue;
+  border-bottom: solid 1px aliceblue;
 }
 .inputNews{
   padding: 5px;
@@ -42,7 +57,7 @@
 .searchNews{
   margin: 0 2vw 0 2vw;
   padding: 5px;
-
+  height: 15px;
   background: #282c34;
   color: aliceblue;
   border: solid 2px aliceblue;
@@ -53,10 +68,15 @@
 .srcRes{
   margin-top: 4vh;
 }
-
+.all{
+  margin-bottom: 15vh;
+}
+.mainInfo{
+  margin: 0 8vw 0 8vw;
+}
 .reqHistoryTitle{
   padding: 5px 15px;
-  margin: 1vh 2vw;
+  margin: 0 2vw 3vh;
   background: #282c34;
   color: aliceblue;
   border: solid 2px aliceblue;
@@ -68,6 +88,12 @@
   color: aliceblue;
   border: solid 2px aliceblue;
 }
+.srchAndRpls{
+  margin: 2vh 8vw 0 8vw;
+  display: flex;
+  justify-content: space-between;
+
+}
 .App-header {
   background-color: #282c34;
   min-height: 110vh;
@@ -77,18 +103,31 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.newsAddName{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+  margin: 2vh 0 1vh 0;
+}
 .showDescription{
   width: 5vw;
   border: solid 2px #282c34;
   border-radius: 20px;
   background: aliceblue;
 }
-.newsName{
-
+.newsName1{
+  margin-right: 8vw;
+  margin-left: 8vw;
+}
+.newsDescription1{
+  margin-right: 12vw;
+  margin-left: 12vw;
+  font-size: calc(7px + 2vmin);
+  color: #666666;
 }
 .newsDescription{
-  margin-right: 4vw;
-  margin-left: 4vw;
+  margin-right: 7vw;
+  margin-left: 7vw;
   font-size: calc(7px + 2vmin);
   color: #666666;
 }
